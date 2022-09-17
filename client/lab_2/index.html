@@ -7,14 +7,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div>
+  <div class="wrapper">
     <!--wrapper-->
-    <header><h1>Alan's Labs for INST377</h1></header>
-    <div>
+    <header class="header"><h1>Alan's Labs for INST377</h1></header>
+    <div class="container">
       <!--container-->
-      <div>
+      <div class="left_section box">
         <!--left inputs-->
         <h3>Album Names</h3>
+        <div class="box"> 
         <ol>
           <li>Canvas - Galdive</li>
           <li>Blonde - Frank Ocean</li>
@@ -22,35 +23,28 @@
           <li>The Joy of Motion - Animals As Leaders</li>
           <li>The Getaway - Red Hot Chili Peppers</li>
         </ol>
+        </div>
       </div>
-      <div>
+      <div class="right_section box">
         <!--right side-->
         <h3>Image Carousel</h3>
-        <div>
+        <div class="grid">
           <!--images box-->
-          <img src="images/mochi.gif" alt="Test image 1">
-          <img src="images/mochi.jpg" alt="Test image 2">
-          <img src="images/mochi.png" alt="Test image 3">
-          <img src="images/mochi.svg" alt="Test image 4">
+          <img src="images/mochi.gif" alt="Test image 1"/>
+          <img src="images/mochi.jpg" alt="Test image 2"/>
+          <img src="images/mochi.png" alt="Test image 3"/>
+          <img src="images/mochi.svg" alt="Test image 4"/>
         </div>
-        <div>
+        <div class="box">
           <!--description box-->
-          happy mochi collection
+          A nice collection of happy mochi images in different formats
         </div>
       </div>
     </div>
   </div>
-  <footer>
+  <footer class="footer">
     achen52
     <a href="http://github.com/achen52/" target="_blank" rel="noopener noreferrer">Github Account</a>
   </footer>
 </body>
 </html>
-Hook it up to CSS by including style.css in the <head> tag
-
-Then add CSS class names to your HTML to make it look like the lab pictures.
-For example: <div class="selector">
-
-You should not need to edit the CSS to do this, only the HTML.
-
-Don't forget to add an actual set of image descriptions to your image carousel.
