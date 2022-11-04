@@ -75,6 +75,7 @@ function processRestaurants(list) {
 
 function filterList(array, filterInputValue) {
   return array.filter((item) => { // filter prepares an array based on items from the initial array that match the truth cases set up as a test
+    if (!item.name) { return; } // return an element only when the element has an actual item name
     const lowerCaseName = item.name.toLowerCase();
     const lowerCaseQuery = filterInputValue.toLowerCase();
     return lowerCaseName.includes(lowerCaseQuery);
@@ -119,8 +120,7 @@ async function mainEvent() {
   console.log(`${arrayFromJson.data[0].name} ${arrayFromJson.data[0].category}`);
 
   // This IF statement ensures we can't do anything if we don't have information yet
-  if (arrayFromJson.data?.length) { return; } // the question mark in this means "if this is set at all" & return if we have no data
-  let currentList = [];
+  if (arrayFromJson.data?.length > 0) { // the question mark in this means "if this is set at all" & return if we have no data
 
   submit.style.display = 'block'; // let's turn the submit button back on by setting it to display as a block when we have data available
 
@@ -128,10 +128,12 @@ async function mainEvent() {
   loadAnimation.classList.remove('lds-ellipsis');
   loadAnimation.classList.add('lds-ellipsis_hidden'); // turn the submit button back on by setting it to display as a block when we have data available
 
+  let currentList = [];
+
   form.addEventListener('input', (event) => {
-    console.log('input', event.target.value); // pull-in form for event bubbling
-    const newFilterList = filterList(arrayFromJson.data, event.target.value); // filter current list from even target value
-    injectHTML(newFilterTest);
+    console.log(event.target.value); // pull-in form for event bubbling
+    const filteredList = filterList(currentList, event.target.value); // filter current list from event target value
+    injectHTML(filteredList);
   });
 
   // And here's an eventListener! It's listening for a "submit" button specifically being clicked
