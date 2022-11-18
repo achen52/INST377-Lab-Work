@@ -11,9 +11,9 @@
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 */
 function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+  const newMin = Math.ceil(min);
+  const newMax = Math.floor(max);
+  return Math.floor(Math.random() * (newMax - newMin) + newMin); // The maximum is exclusive and the minimum is inclusive
 }
 
 function injectHTML(list) {
@@ -37,7 +37,7 @@ function injectHTML(list) {
         the usual ones are element.innerText and element.innerHTML
         Here's an article on the differences if you want to know more:
         https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext
-  
+
       ## What to do in this function
         - Accept a list of restaurant objects
         - using a .forEach method, inject a list element into your index.html for every element in the list
@@ -59,12 +59,12 @@ function processRestaurants(list) {
           then select 15 random records
           and return an object containing only the restaurant's name, category, and geocoded location
           So we can inject them using the HTML injection function
-  
+
           You can find the column names by carefully looking at your single returned record
           https://data.princegeorgescountymd.gov/Health/Food-Inspection/umjn-t2iz
-  
+
         ## What to do in this function:
-  
+
         - Create an array of 15 empty elements (there are a lot of fun ways to do this, and also very basic ways)
         - using a .map function on that range,
         - Make a list of 15 random restaurants from your list of 100 from your data request
